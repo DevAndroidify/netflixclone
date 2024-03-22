@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nag"
+    app:startDestination="@id/home2">
+
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.example.netflixclone.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/newandhot"
+        android:name="com.example.netflixclone.Newandhot"
+        android:label="fragment_newandhot"
+        tools:layout="@layout/fragment_newandhot" />
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.netflixclone.search"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/downloads"
+        android:name="com.example.netflixclone.downloads"
+        android:label="fragment_downloads"
+        tools:layout="@layout/fragment_downloads" />
+    <fragment
+        android:id="@+id/fastlaugh"
+        android:name="com.example.netflixclone.fastlaugh"
+        android:label="fragment_fastlaugh"
+        tools:layout="@layout/fragment_fastlaugh" />
+</navigation>

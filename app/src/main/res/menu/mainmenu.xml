@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/home2"
+    android:title="Home"
+    
+    android:icon="@drawable/baseline_home_24"/>
+    <item android:id="@+id/newandhot"
+        android:title="New and hot"
+
+        android:icon="@drawable/baseline_add_to_photos_24"/>
+    <item android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/baseline_search_24"/>
+    <item android:id="@+id/fastlaugh"
+        android:title="Fast Laugh"
+        android:icon="@drawable/baseline_emoji_emotions_24"/>
+    <item android:id="@+id/downloads"
+        android:title="Downloads"
+        android:icon="@drawable/baseline_download_24"/>
+</menu>

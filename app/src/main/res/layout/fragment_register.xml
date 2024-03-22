@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:background="@drawable/netflixteaser"
+    tools:context=".register">
+
+
+    <ImageView
+        android:id="@+id/backpress"
+        android:layout_width="42dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/netflixlogo"
+        app:layout_constraintStart_toEndOf="@+id/backpress"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="418dp"
+        android:alpha="0.9"
+        android:background="@drawable/cardview"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backpress"
+        app:layout_constraintVertical_bias="1.0">
+
+        <EditText
+            android:id="@+id/registeremail"
+            android:layout_width="266dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="104dp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:alpha="0.8"
+            android:textColor="@color/white"
+            android:hint="Email"
+            android:inputType="text"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/registerpassword"
+            android:layout_width="266dp"
+            android:layout_height="64dp"
+            android:alpha="0.8"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/edittext"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:paddingLeft="20dp"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registeremail" />
+
+        <Button
+            android:id="@+id/registera"
+            android:layout_width="209dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="44dp"
+            android:backgroundTint="#E62116"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerpassword" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

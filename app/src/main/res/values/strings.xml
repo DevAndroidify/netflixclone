@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">netflixclone</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="comedy">RecyclerView for displaying comedy movies</string>
+
+</resources>
