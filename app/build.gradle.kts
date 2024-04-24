@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("kotlin-kapt")
 }
 
 android {
@@ -52,9 +53,26 @@ dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
+
+    var retrofit_version = "2.9.0"
+    implementation ("com.squareup.retrofit2:retrofit:$retrofit_version")
+    implementation ("com.squareup.retrofit2:converter-gson:$retrofit_version")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+
+    var coroutines_version = "1.6.0"
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    
     var navigation_version = "2.4.2"
     implementation ("androidx.navigation:navigation-fragment-ktx:$navigation_version")
     implementation ("androidx.navigation:navigation-ui-ktx:$navigation_version")
     implementation ("com.github.denzcoskun:ImageSlideshow:0.1.2")
+    val room_version = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation ("com.airbnb.android:lottie:6.4.0")
+    // To use Kotlin annotation processing tool (kapt)
+    kapt("androidx.room:room-compiler:$room_version")
 }

@@ -29,6 +29,9 @@ class entry : Fragment() {
         list.add(entryrecyler("Watch everywhere","Stream on your phone,tablet,laptop,TV and more.",R.drawable.blade4))
 
         binding.viewPager.adapter=adapter(requireContext(),list)
+        binding.signin.setOnClickListener {
+            findNavController().navigate(R.id.action_entry_to_signin)
+        }
         return binding.root
     }
 

@@ -9,18 +9,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.netflixclone.api.movieresponseItem
+import com.example.netflixclone.api.userresponse
 import com.example.netflixclone.models.movies
 import java.util.*
 import kotlin.collections.ArrayList
 
-class searchadapter(private val context: Context, private var entryList: ArrayList<movies>) :
+class searchadapter(private val context: Context, private var entryList: ArrayList<movieresponseItem>) :
     RecyclerView.Adapter<searchadapter.NoteViewHolder>() {
 
-    private var filteredList: ArrayList<movies> = ArrayList()
 
-    init {
-        filteredList = entryList
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.searchrecyler, parent, false)
@@ -28,12 +26,12 @@ class searchadapter(private val context: Context, private var entryList: ArrayLi
     }
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
-        val innerList = filteredList[position] // Access the movie at the given position
-        val main = innerList.maintext
-        val second = innerList.secondtext
-        val third = innerList.video
+        val innerList =entryList[position] // Access the movie at the given position
+        val main = innerList.moviename.trim('"')
+        val second = innerList.moviedescription.trim('"')
+        val third = innerList.movievideo
         holder.text.text = main
-        Glide.with(context).load(innerList.image).into(holder.image)
+        Glide.with(context).load("http://172.22.37.171:4000/"+innerList.movieimage.replace("\\","/")).into(holder.image)
         holder.itemView.setOnClickListener {
             val intent = Intent(context, movieactivity::class.java)
             intent.putExtra("movietitle", main)
@@ -44,7 +42,7 @@ class searchadapter(private val context: Context, private var entryList: ArrayLi
     }
 
     override fun getItemCount(): Int {
-        return filteredList.size
+        return entryList.size
     }
 
     inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -52,18 +50,5 @@ class searchadapter(private val context: Context, private var entryList: ArrayLi
         val image: ImageView = itemView.findViewById(R.id.searchmovieimage)
     }
 
-    fun filter(charText: String) {
-        val searchText = charText.toLowerCase(Locale.getDefault())
-        filteredList.clear()
-        if (searchText.isEmpty()) {
-            filteredList.addAll(entryList)
-        } else {
-            for (movie in entryList) {
-                if (movie.maintext!!.toLowerCase(Locale.getDefault()).contains(searchText)) {
-                    filteredList.add(movie)
-                }
-            }
-        }
-        notifyDataSetChanged()
-    }
+
 }

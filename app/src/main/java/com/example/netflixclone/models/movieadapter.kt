@@ -11,9 +11,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.netflixclone.api.movieresponseItem
 import com.example.netflixclone.models.movies
 
-class movieadapter(private val context: Context,private val entryList:ArrayList<movies>) :
+class movieadapter(private val context: Context,private val entryList:ArrayList<movieresponseItem>) :
     RecyclerView.Adapter<movieadapter.NoteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -23,16 +24,20 @@ class movieadapter(private val context: Context,private val entryList:ArrayList<
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val innerList =entryList[position] // Access the note at the given position
-           val main=innerList.maintext
-        val second=innerList.secondtext
-        val third=innerList.video
-       Glide.with(context).load(innerList.image).into(holder.thirdimage)
+           val main=innerList.moviename.trim('"')
+        val second=innerList.moviedescription.trim('"')
+        val third=innerList.movievideo.replace("\\","/")
+
+
+        Glide.with(context).load("http://172.22.37.171:4000/"+innerList.movieimage.replace("\\","/")).into(holder.thirdimage)
+
         holder.itemView.setOnClickListener {
 
             val a=Intent(context,movieactivity::class.java)
              a.putExtra("movietitle",main)
             a.putExtra("moviedesc",second)
             a.putExtra("video",third)
+            a.putExtra("image",innerList.movieimage)
             context.startActivity(a)
         }
 
